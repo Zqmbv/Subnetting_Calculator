@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SubnettingCalculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1> <span class="MainTitle-1">Sub</span><span class="MainTitle-2">Netting</span> Calculator</h1>
+    </header>
+    <main>
+        <section class="panel-input">
+            <form action="">
+
+                <fieldset class="panel--initialIP">
+                    <legend>IP Inicial</legend>
+                    <input type="text" placeholder="Ej: 192.168.32.0" required>
+                    <h3>/</h3>
+                    <input type="number" placeholder="Ej: 24" min="0" max="32" required>
+                </fieldset>
+
+                <fieldset class="panel--subnets">
+                    <legend>Subredes</legend>
+
+                    <div class="panel-header">
+                        <h3>ID</h3>
+                        <h3>Subred</h3>
+                        <h3>Host</h3>
+                        <h3></h3>
+                    </div>
+
+                    <section class="subnets-container">
+
+                        <section class="subnets-input">
+                            <h3>1</h3>
+                            <input type="text" maxlength="24" placeholder="Ej: LAN Subred 1" required>
+                            <input type="number" placeholder="Ej: 150" min="0" max="4294967296" required>
+                            <button class="btn-erase" type="button">X</button>
+                        </section>
+
+                        <section class="subnets-input">
+                            <h3>1</h3>
+                            <input type="text" maxlength="24" placeholder="Ej: LAN Subred 1" required>
+                            <input type="number" placeholder="Ej: 150" min="0" max="4294967296" required>
+                            <button class="btn-erase" type="button">X</button>
+                        </section>
+
+                        <section class="subnets-input">
+                            <h3>1</h3>
+                            <input type="text" maxlength="24" placeholder="Ej: LAN Subred 1" required>
+                            <input type="number" placeholder="Ej: 150" min="0" max="4294967296" required>
+                            <button class="btn-erase" type="button">X</button>
+                        </section>
+
+                    </section>
+
+                    <section class="btn-container">
+                        <section class="radio-group" role="radiogroup" aria-label="Método de subneteo">
+                            <label class="radio-label">
+                                <input type="radio" name="method" value="vlsm" checked> VLSM
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="method" value="flsm"> FLSM
+                            </label>
+                        </section>
+                        
+                        <section class="btn-group">
+                            <button type="button">Agregar</button>
+                            <button type="submit">Calcular</button>
+                        </section>
+                    </section>
+
+                </fieldset>
+
+            </form>
+        </section>
+        <section class="panel-output">
+
+            <fieldset class="panel--table">
+                <legend>Resultado</legend>
+                <section class="table-container">
+                    <table>
+                        <thead>
+                            <th scope="col">Subred</th>
+                            <th scope="col">Host <br> Requeridos</th>
+                            <th scope="col">Host <br> Asignados</th>
+                            <th scope="col">CIDR</th>
+                            <th scope="col">Máscara</th>
+                            <th scope="col">Wildcard <br> Máscara</th>
+                            <th scope="col">Dirección <br> IP</th>
+                            <th scope="col">Primera <br> Útil</th>
+                            <th scope="col">Última <br> Útil</th>
+                            <th scope="col">Broadcast</th>
+                        </thead>
+                        <tbody class="data-table">
+                            <tr>
+                                <td>123456789012345678901234</td>
+                                <td>4294967296</td>
+                                <td>4294967296</td>
+                                <td class="txt-center">32</td>
+                                <td>255.255.255.255</td>
+                                <td>255.255.255.255</td>
+                                <td>192.168.30.0</td>
+                                <td>192.168.30.0</td>
+                                <td>192.168.30.0</td>
+                                <td>192.168.30.0</td>
+                            </tr>
+                            <tr>
+                                <td>123456789012345678901234</td>
+                                <td>4294967296</td>
+                                <td>4294967296</td>
+                                <td class="txt-center">32</td>
+                                <td>255.255.255.255</td>
+                                <td>255.255.255.255</td>
+                                <td>192.168.30.0</td>
+                                <td>192.168.30.0</td>
+                                <td>192.168.30.0</td>
+                                <td>192.168.30.0</td>
+                            </tr>
+                            <tr>
+                                <td>123456789012345678901234</td>
+                                <td>4294967296</td>
+                                <td>4294967296</td>
+                                <td class="txt-center">32</td>
+                                <td>255.255.255.255</td>
+                                <td>255.255.255.255</td>
+                                <td>192.168.30.0</td>
+                                <td>192.168.30.0</td>
+                                <td>192.168.30.0</td>
+                                <td>192.168.30.0</td>
+                            </tr>
+                            <tr>
+                                <td>123456789012345678901234</td>
+                                <td>4294967296</td>
+                                <td>4294967296</td>
+                                <td class="txt-center">32</td>
+                                <td>255.255.255.255</td>
+                                <td>255.255.255.255</td>
+                                <td>192.168.30.0</td>
+                                <td>192.168.30.0</td>
+                                <td>192.168.30.0</td>
+                                <td>192.168.30.0</td>
+                            </tr>
+                            <tr>
+                                <td>123456789012345678901234</td>
+                                <td>4294967296</td>
+                                <td>4294967296</td>
+                                <td class="txt-center">32</td>
+                                <td>255.255.255.255</td>
+                                <td>255.255.255.255</td>
+                                <td>192.168.30.0</td>
+                                <td>192.168.30.0</td>
+                                <td>192.168.30.0</td>
+                                <td>192.168.30.0</td>
+                            </tr>
+                            <tr>
+                                <td>123456789012345678901234</td>
+                                <td>4294967296</td>
+                                <td>4294967296</td>
+                                <td class="txt-center">32</td>
+                                <td>255.255.255.255</td>
+                                <td>255.255.255.255</td>
+                                <td>192.168.30.0</td>
+                                <td>192.168.30.0</td>
+                                <td>192.168.30.0</td>
+                                <td>192.168.30.0</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+                <section class="btn-container">
+                    <button type="submit">Exportar</button>
+                </section>
+            </fieldset>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2026 | Hecho con <span class="heart">&hearts;</span> por <a href="#">Zqmbv</a></p>
+    </footer>
+</body>
+</html>
