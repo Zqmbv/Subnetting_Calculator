@@ -366,6 +366,7 @@ footer a{
         align-items: stretch;
         max-width: 95rem;
         padding: 0 3rem;   
+        margin: 0 auto;
         overflow: hidden; 
     }
 
