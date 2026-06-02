@@ -40,6 +40,7 @@ body{
     font-family: "Roboto", sans-serif;
     display: flex;
     flex-direction: column;
+    justify-content: start;
     min-height: 100dvh;
 }
 
@@ -64,10 +65,10 @@ h1{ font-size: var(--main-title-size)}
 
 main{
     flex-grow: 1;
-    padding: 0 clamp(1rem, 4vw, 3.5rem);
+    padding: 0 clamp(3rem, 6vw, 3.5rem);
     max-width: 90rem;
     width: 100%;
-    margin: 0 auto;
+    /* margin: 0 auto; */
 }
 
 fieldset{
@@ -339,7 +340,7 @@ button:active {
 footer{
     text-align: center;
     background-color: var(--footer-color);
-    padding: 0.85rem;
+    padding: 0.35rem;
 }
 
 footer a{
@@ -364,10 +365,7 @@ footer a{
         gap: 2.5rem;          
         align-items: stretch;
         max-width: 95rem;
-        padding: 0 2rem;   
-        margin: 0.5rem auto;
-        height: calc(100vh - 4.5rem); 
-        min-height: calc(100vh - 4.5rem);
+        padding: 0 3rem;   
         overflow: hidden; 
     }
 
