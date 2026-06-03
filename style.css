@@ -125,7 +125,7 @@ p{
 .subnets-container {
     display: flex;
     flex-direction: column;
-    height: calc(100dvh - 22.45rem);       
+    height: calc(100vh - 22.45rem);       
     min-height: 3rem;  
     overflow-y: auto;        
     gap: 0.5rem;
