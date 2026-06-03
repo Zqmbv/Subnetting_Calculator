@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Calcula subredes VLSM y FLSM de forma rápida y precisa. Obtén máscaras, rangos de IPs y broadcasts al instante con nuestra herramienta interactiva.">
     <title>Subnetting Calculator</title>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -20,7 +21,7 @@
                     <legend>IP y Máscara Inicial</legend>
                     <div>
                         <label for="initial-ip" class="sr-only">Dirección IP Base</label>
-                        <input type="text" id="initial-ip" placeholder="Ej: 192.168.32.0" required>
+                        <input type="text" id="initial-ip" placeholder="Ej: 192.168.32.0" required value="192.168.32.0">
                     </div>
                     <p aria-hidden="true">/</p>
                    <div>
@@ -39,16 +40,7 @@
                         <h3></h3>
                     </div>
 
-                    <section class="subnets-container" id="subnets-container" aria-label="Datos de subredes">
-
-                        <!-- <div class="subnets-input">
-                            <h3>1</h3>
-                            <input type="text" maxlength="24" placeholder="Ej: LAN Subred 1" required>
-                            <input type="number" placeholder="Ej: 150" min="0" max="4294967296" required>
-                            <button class="btn-erase" type="button">X</button>
-                        </div> -->
-
-                    </section>
+                    <section class="subnets-container" id="subnets-container" aria-label="Datos de subredes"></section>
 
                     <section class="btn-container">
                         <section class="radio-group" role="radiogroup" aria-label="Método de subneteo">
@@ -109,7 +101,7 @@
     </main>
 
     <footer>
-        <p>&copy; 2026 | Hecho con <span class="heart">&hearts;</span> por <a target="_blank" href="https://github.com/Zqmbv">Zqmbv</a></p>
+        <p>&copy; 2026 | Hecho con <span class="heart">&hearts;</span> por <a target="_blank" href="https://github.com/Zqmbv">Zqmbv</a> en GitHub</p>
     </footer>
 
     <script src="script.js"></script>
