@@ -6,6 +6,10 @@
     <meta name="description" content="Calcula subredes VLSM y FLSM de forma rápida y precisa. Obtén máscaras, rangos de IPs y broadcasts al instante con nuestra herramienta interactiva.">
     <title>Subnetting Calculator</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=delete" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -26,7 +30,7 @@
                     <p aria-hidden="true">/</p>
                    <div>
                         <label for="initial-cidr" class="sr-only">Máscara CIDR inicial</label>
-                        <input type="number" id="initial-cidr" placeholder="Ej: 24" min="0" max="32" required value="24">
+                        <input type="number" id="initial-cidr" placeholder="Ej: 16" min="0" max="32" required value="16">
                     </div>
                 </fieldset>
 
@@ -76,7 +80,7 @@
                                 <th scope="col">Host <br> Asignados</th>
                                 <th scope="col">CIDR</th>
                                 <th scope="col">Máscara</th>
-                                <th scope="col">Wildcard <br> Máscara</th>
+                                <th scope="col">Máscara <br> Wildcard</th>
                                 <th scope="col">Dirección <br> IP</th>
                                 <th scope="col">Primera <br> Útil</th>
                                 <th scope="col">Última <br> Útil</th>
