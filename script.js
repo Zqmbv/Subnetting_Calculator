@@ -165,7 +165,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <tr>
                 <td colspan="11" class="txt-center empty-msg"> Introduce las subredes y haz clic en "Calcular" para generar resultados.
                 </td>
-            </tr>>
+            </tr>
         `;
     }
 
