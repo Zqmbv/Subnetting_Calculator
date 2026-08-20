@@ -514,3 +514,20 @@ footer a:focus {
     }
 
 }
+
+.subnets-input {
+    cursor: grab;
+    user-select: none;
+    transition: transform 0.15s ease, opacity 0.15s ease;
+}
+
+.subnets-input:active {
+    cursor: grabbing;
+}
+
+.subnets-input.dragging {
+    opacity: 0.4;
+    background-color: var(--input-color);
+    border: 1px dashed var(--title1-color);
+    border-radius: var(--corner2-radius);
+}

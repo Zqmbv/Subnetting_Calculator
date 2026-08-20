@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const exportCsvBtn      = document.getElementById('export-csv-btn');
     const panelOutput       = document.getElementById('panel-output');
 
-    //region Subnet
+    // region Subnet
     class Subnet {
         constructor(name, hostNeeded) {
             this.name = name;
@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
         getWildcardMask() { return VLSM.longToIp(this.wildcardLong); }
     }
 
-    // region  VLSM
+    // region VLSM
     class VLSM {
         constructor(initialIpStr, initialPrefix, subnetsList, method = 'vlsm') {
             this.initialIpLong = VLSM.ipToLong(initialIpStr);
@@ -107,7 +107,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // CONTROL DINÁMICO DE FILAS (SUBREDES) DE INTERFAZ
+    // CONTROL DINÁMICO DE FILAS E INTERACTIVIDAD DE INTERFAZ
     function recalculateIDs() {
         const rows = subnetsContainer.querySelectorAll('.subnets-input');
         rows.forEach((row, index) => {
@@ -132,6 +132,39 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // GESTIÓN DE DRAG AND DROP (ARRASTRAR Y REORDENAR)
+    function makeSubnetDraggable(row) {
+        row.setAttribute('draggable', 'true');
+
+        row.addEventListener('dragstart', (e) => {
+            row.classList.add('dragging');
+            e.dataTransfer.effectAllowed = 'move';
+        });
+
+        row.addEventListener('dragend', () => {
+            row.classList.remove('dragging');
+            recalculateIDs();
+        });
+    }
+
+    subnetsContainer.addEventListener('dragover', (e) => {
+        e.preventDefault();
+        const draggingItem = document.querySelector('.dragging');
+        if (!draggingItem) return;
+
+        const siblings = [...subnetsContainer.querySelectorAll('.subnets-input:not(.dragging)')];
+        const nextSibling = siblings.find(sibling => {
+            const box = sibling.getBoundingClientRect();
+            return e.clientY <= box.top + box.height / 2;
+        });
+
+        if (nextSibling) {
+            subnetsContainer.insertBefore(draggingItem, nextSibling);
+        } else {
+            subnetsContainer.appendChild(draggingItem);
+        }
+    });
+
     addSubnetBtn.addEventListener('click', () => {
         const count = subnetsContainer.querySelectorAll('.subnets-input').length + 1;
 
@@ -146,6 +179,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <button class="btn-erase" type="button" aria-label="Eliminar subred ${count}"><span class="material-symbols-outlined">delete</span></button>
         `;
 
+        makeSubnetDraggable(newRow);
         subnetsContainer.appendChild(newRow);
         subnetsContainer.scrollTop = subnetsContainer.scrollHeight;
     });
@@ -169,8 +203,7 @@ document.addEventListener('DOMContentLoaded', () => {
         `;
     }
 
-    //region PROCESO
-
+    // region PROCESO
     form.addEventListener('submit', (e) => {
         e.preventDefault();
 
@@ -218,7 +251,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const ejecutorRed = new VLSM(ipInput, cidrInput, subnetsData, method);
             
             let resultsHTML = '';
-            ejecutorRed.subnets.forEach((sub, index) => {
+            ejecutorRed.subnets.forEach((sub) => {
                 resultsHTML += `
                     <tr>
                         <td>${sub.name}</td>
@@ -247,7 +280,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    //region EXPORT
+    // region EXPORT
     exportCsvBtn.addEventListener('click', () => {
         const rows = resultTbody.querySelectorAll('tr');
         if (rows.length === 0 || rows[0].classList.contains('empty-table-row')) {
